@@ -1,0 +1,21 @@
+Q1：
+step 1:
+先將binutils解壓，開一個新資料夾，然後用 "./binutils原始碼所在路徑/configure --prefix=/foo --target=arm-elf" 做出安裝目錄為 "/foo" 目標機器為 "arm-elf" 的MAKE檔案，之後make insatll，完成binutils安裝。
+
+step 2:
+將gcc解壓，先用 "PATH=$PATH:/foo/bin" 將 "/foo/bin"加入PATH讓GCC能調用binutils，然後用"./configure --prefix=/foo --target=arm-elf --with-newlib --enable-languages=c" 做出連結newlib函式庫的MAKE檔案，之後make insatll，完成gcc安裝。
+(gcc-7.2.0需要加入gmp和mpfr函式庫才能通過編譯)
+
+step 3:
+將newlib解壓，先用 "PATH=$PATH:/foo/bin" 將 "/foo/bin"加入PATH，然後用"./configure --prefix=/foo --target=arm-elf" 做出MAKE檔案，之後make insatll，完成newlib安裝。
+
+好像能執行的指令都是/foo/bin下的檔案名稱，arm-elf-as
+
+
+Q2:
+hw1.o內的是名叫object code的機器碼，但是沒有導入相關的函式庫;hw1.exe內的是有導入相關函式進去並連結，且能直接執行的二進制機器碼。
+
+Q3:
+(編譯較快，程式檔執行效率較差)O0 > O3(編譯較慢，程式檔執行效率較佳)
+
+

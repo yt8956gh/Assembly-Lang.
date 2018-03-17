@@ -1,0 +1,9 @@
+This program will initialize r0 ~ r4 with small constant for making the number in register convenient to change with GUI, and it will run steps like the code below.
+
+        """""""""""""""""""
+            r7 = r1 + r0
+            r7 += r2
+            r7 += r3
+            r7 += r4
+
+        """""""""""""""""""
